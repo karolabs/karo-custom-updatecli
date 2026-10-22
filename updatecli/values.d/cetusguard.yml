@@ -1,0 +1,10 @@
+# updatecli values file
+# cetusguard docker image
+
+image:
+  repository: docker.io/hectorm/cetusguard
+  version:
+    regex: '^v([0-9]+\.[0-9]+\.[0-9]+)$' # v1.0.0
+    pattern: '*'
+    strict: true
+  key: $.karolabs_cetusguard_image

@@ -1,0 +1,45 @@
+# SPDX-FileCopyrightText: © 2026 hazzuk
+#
+# SPDX-License-Identifier: AGPL-3.0-only
+
+# yaml-language-server: $schema=https://www.schemastore.org/github-workflow.json
+
+---
+
+name: Updatecli
+
+on:
+  # manual trigger
+  workflow_dispatch:
+  # once per day
+  schedule:
+    - cron: "0 0 * * *"
+
+permissions:
+  # create git commits
+  contents: write
+  # open pull requests
+  pull-requests: write
+
+jobs:
+  updatecli:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        images:
+          - whoami
+          - cetusguard
+          - pocketid
+
+    steps:
+      - name: Run Checkout # https://github.com/actions/checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install Updatecli # https://github.com/updatecli/updatecli-action
+        uses: updatecli/updatecli-action@5d180ff09f5204e599bbd6030cd1736009ed5ff2 # v3.9.0
+
+      - name: Run Updatecli
+        run: "updatecli apply --config updatecli/updatecli.d/images.yml --values updatecli/values.d/${{ matrix.images }}.yml"
+        env:
+          UPDATECLI_GITHUB_REPOSITORY_OWNER: "${{ github.repository_owner }}"
+          UPDATECLI_GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
