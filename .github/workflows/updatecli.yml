@@ -28,8 +28,8 @@ jobs:
       matrix:
         images:
           - whoami
-          # - cetusguard
-          # - pocketid
+          - cetusguard
+          - pocketid
 
     steps:
       - name: Run Checkout # https://github.com/actions/checkout
@@ -37,12 +37,6 @@ jobs:
 
       - name: Install Updatecli # https://github.com/updatecli/updatecli-action
         uses: updatecli/updatecli-action@5d180ff09f5204e599bbd6030cd1736009ed5ff2 # v3.9.0
-
-      - name: Check compose file
-        run: |
-          pwd
-          git ls-files --error-unmatch compose/images.yml
-          ls -l compose/images.yml
 
       - name: Run Updatecli
         run: "updatecli apply --config updatecli/updatecli.d/images.yml --values updatecli/values.d/${{ matrix.images }}.yml"
