@@ -30,6 +30,10 @@ jobs:
           - whoami
           - cetusguard
           - pocketid
+          - traefik
+        include:
+          - images: traefik
+            dhi: true
 
     steps:
       - name: Run Checkout # https://github.com/actions/checkout
@@ -37,6 +41,14 @@ jobs:
 
       - name: Install Updatecli # https://github.com/updatecli/updatecli-action
         uses: updatecli/updatecli-action@93ae2608256484ef8598e902aa675bbc9e278e4e # v3.10.0
+
+      - name: Run Docker Login # https://github.com/docker/login-action
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        with:
+          registry: docker.io
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+        if: ${{ matrix.dhi == true }}
 
       - run: echo '${{ github.event.repository.name }}' # TEMP
 

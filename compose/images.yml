@@ -6,3 +6,5 @@ karolabs_cetusguard_image: docker.io/hectorm/cetusguard:v1.1.4@sha256:16a60a5794
 karolabs_pocketid_image: docker.io/pocketid/pocket-id:v2.14.0-distroless@sha256:e0f83a42a78d0759b6d2d8c7380ef0fa8a4c95dfa01ad88740a073ae9cc4ba94
 
 karolabs_whoami_image: docker.io/traefik/whoami:v1.11.0@sha256:200689790a0a0ea48ca45992e0450bc26ccab5307375b41c84dfc4f2475937ab
+
+karolabs_traefik_image: dhi.io/traefik:3.7.14-alpine
