@@ -6,7 +6,7 @@
 
 ---
 
-name: Updatecli - Image tags
+name: Updatecli
 
 on:
   # manual trigger
