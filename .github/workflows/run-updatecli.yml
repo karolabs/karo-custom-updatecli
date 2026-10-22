@@ -28,6 +28,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+
+      # repo config
       matrix:
         images:
           - whoami
@@ -48,12 +50,12 @@ jobs:
       - name: Run Docker Login # https://github.com/docker/login-action
         uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
         with:
-          registry: dhi.io
+          registry: dhi.io # docker hardened images
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
         if: ${{ matrix.dhi == true }}
 
-      - name: Run Updatecli
+      - name: Run Updatecli update-images.yml
         run: "updatecli pipeline apply --config updatecli/updatecli.d/update-images.yml --values updatecli/values.d/${{ matrix.images }}.yml"
         env:
           UPDATECLI_GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
