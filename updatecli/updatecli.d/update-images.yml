@@ -10,6 +10,7 @@ name: 'Update {{ .image.repository }} image tag'
 pipelineid: 'images-{{ .image.name }}'
 
 sources:
+  # https://updatecli.io/docs/plugins/resource/docker_image
   docker-image-tag:
     name: Gather newest image tag
     kind: dockerimage
@@ -23,6 +24,7 @@ sources:
         strict: true
         #{{- end }}
 
+  # https://updatecli.io/docs/plugins/resource/docker_digest
   docker-digest:
     name: Resolve image digest
     kind: dockerdigest
@@ -31,6 +33,7 @@ sources:
       tag: '{{ source "docker-image-tag" }}'
 
 scms:
+  # https://updatecli.io/docs/plugins/scm/github
   github-repo:
     kind: github
     spec:
@@ -47,6 +50,7 @@ scms:
       workingbranchseparator: '-'
 
 actions:
+  # https://updatecli.io/docs/plugins/actions/github
   pull-request:
     kind: github/pullrequest
     scmid: github-repo
@@ -57,6 +61,7 @@ actions:
       description: '{{ .image.notes }}'
 
 targets:
+  # https://updatecli.io/docs/plugins/resource/yaml
   images-file:
     name: 'bump {{ .image.name }} image tag to {{ source "docker-image-tag" }}' # commit title
     kind: yaml
