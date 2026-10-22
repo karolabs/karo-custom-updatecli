@@ -6,7 +6,8 @@
 # See https://updatecli.io for more information.
 # yaml-language-server: $schema=https://www.updatecli.io/schema/latest/policy/manifest/config.json
 
-name: 'Update {{ .image.repository }}'
+name: 'Update {{ .image.repository }} image tag'
+pipelineid: 'images-{{ .image.name }}'
 
 sources:
   docker-image:
