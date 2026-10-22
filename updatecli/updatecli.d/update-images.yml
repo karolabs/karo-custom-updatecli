@@ -10,7 +10,7 @@ name: 'Update image tag for {{ .image.repository }}'
 pipelineid: 'images-{{ .image.name }}'
 
 sources:
-  docker-image:
+  docker-image-tag:
     name: Gather newest image tag
     kind: dockerimage
     spec:
@@ -28,7 +28,7 @@ sources:
     kind: dockerdigest
     spec:
       image: '{{ .image.repository }}'
-      tag: '{{ source "docker-image" }}'
+      tag: '{{ source "docker-image-tag" }}'
 
 scms:
   github-repo:
@@ -57,7 +57,7 @@ actions:
 
 targets:
   images-file:
-    name: 'bump {{ .image.name }} image tag to {{ source "docker-image" }}' # commit title
+    name: 'bump {{ .image.name }} image tag to {{ source "docker-image-tag" }}' # commit title
     kind: yaml
     sourceid: docker-digest
     scmid: github-repo
