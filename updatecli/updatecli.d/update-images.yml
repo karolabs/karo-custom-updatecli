@@ -6,7 +6,7 @@
 # See https://updatecli.io for more information.
 # yaml-language-server: $schema=https://www.updatecli.io/schema/latest/policy/manifest/config.json
 
-name: 'Update image tag for {{ .image.repository }}'
+name: 'Update {{ .image.repository }} image tag'
 pipelineid: 'images-{{ .image.name }}'
 
 sources:
@@ -51,9 +51,10 @@ actions:
     kind: github/pullrequest
     scmid: github-repo
     spec:
-      # title:
+      title: 'Update {{ .image.repository }} to {{ source "docker-image-tag" }}'
       labels:
         - Kind/Update
+      description: '{{ .image.notes }}'
 
 targets:
   images-file:
