@@ -35,7 +35,7 @@ scms:
     kind: github
     spec:
       owner: '{{ requiredEnv "UPDATECLI_GITHUB_REPOSITORY_OWNER" }}'
-      repository: karo-custom-updatecli
+      repository: '{{ requiredEnv "UPDATECLI_GITHUB_REPOSITORY_NAME" }}'
       token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
       branch: dev
       commitmessage:
