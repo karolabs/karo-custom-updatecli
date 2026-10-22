@@ -50,8 +50,6 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
         if: ${{ matrix.dhi == true }}
 
-      - run: echo '${{ github.event.repository.name }}' # TEMP
-
       - name: Run Updatecli
         run: "updatecli pipeline apply --config updatecli/updatecli.d/images.yml --values updatecli/values.d/${{ matrix.images }}.yml"
         env:
