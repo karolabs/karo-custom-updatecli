@@ -28,8 +28,8 @@ jobs:
       matrix:
         images:
           - whoami
-          - cetusguard
-          - pocketid
+          # - cetusguard
+          # - pocketid
 
     steps:
       - name: Run Checkout # https://github.com/actions/checkout
