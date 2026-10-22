@@ -53,7 +53,7 @@ jobs:
       - run: echo '${{ github.event.repository.name }}' # TEMP
 
       - name: Run Updatecli
-        run: "updatecli apply --config updatecli/updatecli.d/images.yml --values updatecli/values.d/${{ matrix.images }}.yml"
+        run: "updatecli pipeline apply --config updatecli/updatecli.d/images.yml --values updatecli/values.d/${{ matrix.images }}.yml"
         env:
           UPDATECLI_GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
           UPDATECLI_GITHUB_REPOSITORY_NAME: ${{ github.event.repository.name }}
