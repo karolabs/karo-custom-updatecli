@@ -1,4 +1,9 @@
-# updatecli values file
+# SPDX-FileCopyrightText: © 2026 hazzuk
+#
+# SPDX-License-Identifier: AGPL-3.0-only
+
+# Values file for `updatecli`, a declarative update policy engine.
+# See https://updatecli.io for more information.
 
 image:
   name: cetusguard
