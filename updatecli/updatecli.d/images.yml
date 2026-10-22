@@ -56,7 +56,7 @@ actions:
 
 targets:
   images-file:
-    name: 'bump {{ .image.repository }} to {{ source "docker-image" }}' # commit title
+    name: 'bump {{ .image.name }} to {{ source "docker-image" }}' # commit title
     kind: yaml
     sourceid: docker-digest
     scmid: github-repo
