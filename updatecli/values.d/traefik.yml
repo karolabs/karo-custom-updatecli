@@ -4,7 +4,7 @@ image:
   name: traefik
   repository: dhi.io/traefik
   version:
-    regex: '^v([0-9]+\.[0-9]+\.[0-9]+)-alpine$' # v1.0.0-alpine
+    regex: '^([0-9]+\.[0-9]+\.[0-9]+)-alpine$' # 1.0.0-alpine
     pattern: '*'
     strict: true
   key: $.karolabs_traefik_image
