@@ -61,5 +61,5 @@ targets:
     transformers:
       - addprefix: '{{ .image.repository }}:'
     spec:
-      file: images.yml
+      file: compose/images.yml
       key: '{{ .image.key }}'
