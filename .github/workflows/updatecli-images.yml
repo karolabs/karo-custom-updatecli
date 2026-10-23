@@ -14,21 +14,27 @@ on:
   workflow_call:
     inputs:
       docker-image:
+        description: Name of Docker image to update
         required: true
         type: string
       docker-registry:
+        description: Registry of Docker image
         required: false
         type: string
       github-branch:
+        description: Git branch to work on
         required: true
         type: string
       github-pr-label:
+        description: Repository label added to pull request
         required: false
         type: string
     secrets:
       dockerhub-username:
+        description: Docker Hub account username
         required: false
       dockerhub-token:
+        description: Docker Hub personal access token
         required: false
 
 jobs:
