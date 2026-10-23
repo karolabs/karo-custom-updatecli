@@ -53,6 +53,7 @@ scms:
       owner: '{{ requiredEnv "UPDATECLI_GITHUB_REPOSITORY_OWNER" }}'
       repository: '{{ requiredEnv "UPDATECLI_GITHUB_REPOSITORY_NAME" }}'
       token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
+      username: '{{ requiredEnv "UPDATECLI_GITHUB_ACTOR" }}'
       branch: '{{ requiredEnv "UPDATECLI_GITHUB_BRANCH" }}'
       commitmessage:
         hidecredit: true
