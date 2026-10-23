@@ -57,7 +57,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
         if: ${{ matrix.registry }}
 
-      - name: Run Updatecli update-images.yml
+      - name: Run Updatecli
         run: |
           updatecli pipeline apply \
             --clean-git-branches=true \
