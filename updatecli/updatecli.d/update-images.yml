@@ -32,6 +32,19 @@ sources:
       image: '{{ .image.repository }}'
       tag: '{{ source "dockerImageTag" }}'
 
+targets:
+  # https://updatecli.io/docs/plugins/resource/yaml
+  imagesFile:
+    name: 'bump {{ .image.name }} image tag to {{ source "dockerImageTag" }}' # commit title
+    kind: yaml
+    sourceid: dockerDigest
+    scmid: default
+    transformers:
+      - addprefix: '{{ .image.repository }}:'
+    spec:
+      file: compose/images.yml
+      key: '{{ .image.file_key }}'
+
 scms:
   # https://updatecli.io/docs/plugins/scm/github
   default:
@@ -58,16 +71,3 @@ actions:
       labels:
         - Kind/Update
       description: '{{ .image.pr_notes }}'
-
-targets:
-  # https://updatecli.io/docs/plugins/resource/yaml
-  imagesFile:
-    name: 'bump {{ .image.name }} image tag to {{ source "dockerImageTag" }}' # commit title
-    kind: yaml
-    sourceid: dockerDigest
-    scmid: default
-    transformers:
-      - addprefix: '{{ .image.repository }}:'
-    spec:
-      file: compose/images.yml
-      key: '{{ .image.file_key }}'
