@@ -16,6 +16,7 @@ on:
   # once per day
   schedule:
     - cron: "0 0 * * *"
+      timezone: "Europe/London"
 
 jobs:
   call-updatecli-images:
