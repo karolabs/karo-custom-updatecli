@@ -44,7 +44,7 @@ jobs:
       - name: Run Checkout # https://github.com/actions/checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: dev
+          ref: ${{ vars.UPDATECLI_GITHUB_BRANCH }}
 
       - name: Install Updatecli # https://github.com/updatecli/updatecli-action
         uses: updatecli/updatecli-action@93ae2608256484ef8598e902aa675bbc9e278e4e # v3.10.0
@@ -68,5 +68,5 @@ jobs:
           UPDATECLI_GITHUB_REPOSITORY_NAME: ${{ github.event.repository.name }}
           UPDATECLI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           UPDATECLI_GITHUB_ACTOR: ${{ github.actor }}
-          UPDATECLI_GITHUB_BRANCH: dev
-          UPDATECLI_GITHUB_PR_LABEL: Kind/Update
+          UPDATECLI_GITHUB_BRANCH: ${{ vars.UPDATECLI_GITHUB_BRANCH }}
+          UPDATECLI_GITHUB_PR_LABEL: ${{ vars.UPDATECLI_GITHUB_PR_LABEL }}
