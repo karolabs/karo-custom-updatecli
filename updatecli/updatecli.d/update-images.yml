@@ -11,7 +11,7 @@ pipelineid: 'images-{{ .image.name }}'
 
 sources:
   # https://updatecli.io/docs/plugins/resource/docker_image
-  docker-image-tag:
+  dockerImageTag:
     name: Gather newest image tag
     kind: dockerimage
     spec:
@@ -25,16 +25,16 @@ sources:
         #{{- end }}
 
   # https://updatecli.io/docs/plugins/resource/docker_digest
-  docker-digest:
+  dockerDigest:
     name: Resolve image digest
     kind: dockerdigest
     spec:
       image: '{{ .image.repository }}'
-      tag: '{{ source "docker-image-tag" }}'
+      tag: '{{ source "dockerImageTag" }}'
 
 scms:
   # https://updatecli.io/docs/plugins/scm/github
-  github-repo:
+  default:
     kind: github
     spec:
       owner: '{{ requiredEnv "UPDATECLI_GITHUB_REPOSITORY_OWNER" }}'
@@ -51,22 +51,22 @@ scms:
 
 actions:
   # https://updatecli.io/docs/plugins/actions/github
-  pull-request:
+  pullRequest:
     kind: github/pullrequest
-    scmid: github-repo
+    scmid: default
     spec:
-      title: 'Update {{ .image.repository }} to {{ source "docker-image-tag" }}'
+      title: 'Update {{ .image.repository }} to {{ source "dockerImageTag" }}'
       labels:
         - Kind/Update
       description: '{{ .image.notes }}'
 
 targets:
   # https://updatecli.io/docs/plugins/resource/yaml
-  images-file:
-    name: 'bump {{ .image.name }} image tag to {{ source "docker-image-tag" }}' # commit title
+  imagesFile:
+    name: 'bump {{ .image.name }} image tag to {{ source "dockerImageTag" }}' # commit title
     kind: yaml
-    sourceid: docker-digest
-    scmid: github-repo
+    sourceid: dockerDigest
+    scmid: default
     transformers:
       - addprefix: '{{ .image.repository }}:'
     spec:
