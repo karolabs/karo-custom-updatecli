@@ -8,10 +8,10 @@
 image:
   name: pocketid
   repository: docker.io/pocketid/pocket-id
-  version:
-    regex: '^v([0-9]+\.[0-9]+\.[0-9]+)-distroless$' # v1.0.0-distroless
+  tag_regex: '^v([0-9]+\.[0-9]+\.[0-9]+)-distroless$' # v1.0.0-distroless
+  semver:
     pattern: '*'
     strict: true
-  key: $.karolabs_pocketid_image
-  notes: |
+  file_key: $.karolabs_pocketid_image
+  pr_notes: |
     https://custom.karolabs.dev/karolabs_core/pocket-id/

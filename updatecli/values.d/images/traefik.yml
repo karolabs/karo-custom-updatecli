@@ -8,10 +8,10 @@
 image:
   name: traefik
   repository: dhi.io/traefik
-  version:
-    regex: '^([0-9]+\.[0-9]+\.[0-9]+)-alpine$' # 1.0.0-alpine
+  tag_regex: '^([0-9]+\.[0-9]+\.[0-9]+)-alpine$' # 1.0.0-alpine
+  semver:
     pattern: '*'
     strict: true
-  key: $.karolabs_traefik_image
-  notes: |
+  file_key: $.karolabs_traefik_image
+  pr_notes: |
     https://custom.karolabs.dev/karolabs_core/traefik/

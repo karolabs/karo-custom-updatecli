@@ -8,10 +8,10 @@
 image:
   name: cetusguard
   repository: docker.io/hectorm/cetusguard
-  version:
-    regex: '^v([0-9]+\.[0-9]+\.[0-9]+)$' # v1.0.0
+  tag_regex: '^v([0-9]+\.[0-9]+\.[0-9]+)$' # v1.0.0
+  semver:
     pattern: '*'
     strict: true
-  key: $.karolabs_cetusguard_image
-  notes: |
+  file_key: $.karolabs_cetusguard_image
+  pr_notes: |
     https://custom.karolabs.dev/karolabs_core/traefik/
