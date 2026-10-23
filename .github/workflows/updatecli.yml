@@ -37,8 +37,8 @@ jobs:
           - pocketid
           - traefik
         include:
-          - images: traefik
-            dhi: true
+          - image: traefik
+            registry: dhi.io
 
     steps:
       - name: Run Checkout # https://github.com/actions/checkout
@@ -52,10 +52,10 @@ jobs:
       - name: Run Docker Login # https://github.com/docker/login-action
         uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
         with:
-          registry: dhi.io # docker hardened images
+          registry: ${{ matrix.registry }}
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-        if: ${{ matrix.dhi == true }}
+        if: ${{ matrix.registry }}
 
       - name: Run Updatecli update-images.yml
         run: |
