@@ -66,3 +66,5 @@ jobs:
           UPDATECLI_GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
           UPDATECLI_GITHUB_REPOSITORY_NAME: ${{ github.event.repository.name }}
           UPDATECLI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          UPDATECLI_GITHUB_BRANCH: dev
+          UPDATECLI_GITHUB_PR_LABEL: Kind/Update

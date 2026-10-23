@@ -53,7 +53,7 @@ scms:
       owner: '{{ requiredEnv "UPDATECLI_GITHUB_REPOSITORY_OWNER" }}'
       repository: '{{ requiredEnv "UPDATECLI_GITHUB_REPOSITORY_NAME" }}'
       token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
-      branch: dev
+      branch: '{{ requiredEnv "UPDATECLI_GITHUB_BRANCH" }}'
       commitmessage:
         hidecredit: true
         body: |
@@ -69,5 +69,5 @@ actions:
     spec:
       title: 'Update {{ .image.repository }} to {{ source "dockerImageTag" }}'
       labels:
-        - Kind/Update
+        - '{{ requiredEnv "UPDATECLI_GITHUB_PR_LABEL" }}'
       description: '{{ .image.pr_notes }}'
