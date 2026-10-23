@@ -60,6 +60,7 @@ jobs:
       - name: Run Updatecli update-images.yml
         run: |
           updatecli pipeline apply \
+            --clean-git-branches=true \
             --config updatecli/updatecli.d/update-images.yml \
             --values updatecli/values.d/images/${{ matrix.image }}.yml
         env:
