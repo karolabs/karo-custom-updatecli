@@ -20,7 +20,7 @@ on:
 jobs:
   call-updatecli-images:
     # external workflow file
-    uses: karo-custom/karo-custom-updatecli/.github/workflows/updatecli-images.yml@dev
+    uses: karolabs/karo-custom-updatecli/.github/workflows/updatecli-images.yml@dev
     # set permissions
     permissions:
       contents: write
