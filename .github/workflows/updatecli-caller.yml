@@ -19,13 +19,16 @@ on:
       timezone: "Europe/London"
 
 jobs:
+
   call-updatecli-images:
     # external workflow file
     uses: karolabs/karo-custom-updatecli/.github/workflows/updatecli-images.yml@dev
+
     # set permissions
     permissions:
       contents: write
       pull-requests: write
+
     # define images
     strategy:
       fail-fast: false
@@ -38,6 +41,7 @@ jobs:
         include:
           - image: traefik
             registry: dhi.io
+
     # pass variables and secrets
     with:
       docker-image: ${{ matrix.image }}
