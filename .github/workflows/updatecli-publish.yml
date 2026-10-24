@@ -16,8 +16,8 @@ name: Publish Updatecli Policies
 on:
   # manual trigger
   workflow_dispatch:
-  push:
-    branches: ['main']
+  # push:
+  #   branches: ['main']
 
 permissions:
   contents: read
