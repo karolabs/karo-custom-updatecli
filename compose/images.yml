@@ -5,7 +5,7 @@
 # karo-custom images file, for declaraing Docker image values.
 # See https://docs.karolabs.dev for more information.
 
----
+# ---
 
 karolabs_cetusguard_image: docker.io/hectorm/cetusguard:v1.1.4@sha256:16a60a57943bb5ba4c3792c6b815cfb180f3492a7cabc469036ac1291c9c5365
 
