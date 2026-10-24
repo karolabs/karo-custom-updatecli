@@ -42,4 +42,5 @@ jobs:
         working-directory: updatecli/policies/images
         run: |
           updatecli manifest push \
+            --values values.yml \
             --tag ghcr.io/karolabs/updatecli/images .

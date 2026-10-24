@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: © 2026 hazzuk
+#
+# SPDX-License-Identifier: AGPL-3.0-only
+
+# An `updatecli` values file, for declaraing generic values.
+# See https://updatecli.io for more information.
+
+image:
+  # name: example
+  # repository: docker.io/exampleorg/example
+  tag_regex: '^v([0-9]+\.[0-9]+\.[0-9]+)$' # v1.0.0
+  semver:
+    pattern: '*'
+    strict: true
+  # file_key: $.username_example_image
+  # pr_notes: |
+  #   https://example.com/docs
