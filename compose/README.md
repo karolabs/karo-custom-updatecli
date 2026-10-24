@@ -6,4 +6,4 @@ SPDX-License-Identifier: AGPL-3.0-only
 
 # compose/
 
-This is a test data directory for values normally used in karo-custom repos.
+This is a test data directory for files normally used in karo-custom repos.
