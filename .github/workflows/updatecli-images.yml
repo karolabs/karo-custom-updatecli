@@ -67,7 +67,7 @@ jobs:
       - name: Run Updatecli
         run: |
           updatecli pipeline apply \
-            ghcr.io/karolabs/updatecli/images:latest \
+            ghcr.io/karolabs/updatecli/images:0.1.0 \
             --values updatecli/values.d/images/${{ inputs.docker-image }}.yml \
             --clean-git-branches=true
         env:
