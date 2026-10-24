@@ -8,7 +8,7 @@
 
 ---
 
-name: Updatecli
+name: Updatecli (standalone)
 
 on:
   # manual trigger
