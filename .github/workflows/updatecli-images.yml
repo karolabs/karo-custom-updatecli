@@ -37,6 +37,10 @@ on:
         description: Docker Hub personal access token
         required: false
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   karo-updatecli-images:
     runs-on: ubuntu-latest
