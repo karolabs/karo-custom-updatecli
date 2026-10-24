@@ -11,11 +11,9 @@
 authors:
   - hazzuk
 
-# url: "https://github.com/karolabs/karo-custom-updatecli/"
+url: "https://github.com/karolabs/updatecli"
 
-# documentation: "https://docs.karolabs.dev/"
-
-# source: "https://github.com/karolabs/karo-custom-updatecli/tree/main/updatecli/policies/images/"
+source: "https://github.com/karolabs/updatecli/tree/main/updatecli/policies/images"
 
 version: 0.2.0
 
