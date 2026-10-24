@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-only
 
-# Values file for `updatecli`, a declarative update policy engine.
+# An `updatecli` values file, for declaraing generic values.
 # See https://updatecli.io for more information.
 
 image:

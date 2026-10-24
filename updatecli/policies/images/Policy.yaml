@@ -2,7 +2,10 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-only
 
+# An `updatecli` policy file, metadata for reusable manifests.
+# See https://updatecli.io for more information.
 # yaml-language-server: $schema=https://www.updatecli.io/schema/latest/policy/metadata/config.json
+
 ---
 
 authors:
