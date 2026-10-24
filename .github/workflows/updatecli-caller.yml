@@ -8,7 +8,7 @@
 
 ---
 
-name: Updatecli Caller
+name: Updatecli
 
 on:
   # manual trigger
@@ -21,6 +21,7 @@ on:
 jobs:
 
   call-updatecli-images:
+    name: Updatecli Images
     # external workflow file
     uses: karolabs/updatecli/.github/workflows/updatecli-images.yml@main
 

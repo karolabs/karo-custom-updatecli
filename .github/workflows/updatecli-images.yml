@@ -6,12 +6,9 @@
 # See https://docs.github.com/actions for more information.
 # yaml-language-server: $schema=https://www.schemastore.org/github-workflow.json
 
-# REUSABLE WORKFLOW
-
 ---
 
-name: Updatecli Images
-
+# REUSABLE WORKFLOW
 on:
   workflow_call:
     inputs:
@@ -44,7 +41,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  karo-updatecli-images:
+  karolabs-updatecli-images:
+    name: karolabs/updatecli/images
     runs-on: ubuntu-latest
 
     steps:
