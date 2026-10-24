@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: © 2026 hazzuk
+#
+# SPDX-License-Identifier: AGPL-3.0-only
+
+# yaml-language-server: $schema=https://www.updatecli.io/schema/latest/policy/metadata/config.json
+---
+
+authors:
+  - hazzuk
+
+# url: "https://github.com/karolabs/karo-custom-updatecli/"
+
+# documentation: "https://docs.karolabs.dev/"
+
+# source: "https://github.com/karolabs/karo-custom-updatecli/tree/main/updatecli/policies/images/"
+
+version: 0.1.0
+
+vendor: karolabs
+
+licenses:
+  - "AGPL-3.0-only"
+
+description: |
+  Update Docker images inside a karo-custom repo.

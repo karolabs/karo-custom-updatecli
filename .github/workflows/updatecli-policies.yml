@@ -1,0 +1,45 @@
+# SPDX-FileCopyrightText: © 2026 hazzuk
+#
+# SPDX-License-Identifier: AGPL-3.0-only
+
+# GitHub Actions workflow, for running configurable automated processes.
+# See https://docs.github.com/actions for more information.
+# yaml-language-server: $schema=https://www.schemastore.org/github-workflow.json
+
+---
+
+name: Publish Updatecli Policies
+
+on:
+  # manual trigger
+  workflow_dispatch:
+  push:
+    branches: ['main']
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  updatecli-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Checkout # https://github.com/actions/checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install Updatecli # https://github.com/updatecli/updatecli-action
+        uses: updatecli/updatecli-action@93ae2608256484ef8598e902aa675bbc9e278e4e # v3.10.0
+
+      - name: Run Registry Login # https://github.com/docker/login-action
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Updatecli
+        working-directory: updatecli/policies/images
+        run: |
+          updatecli manifest push \
+            --tag ghcr.io/karolabs/updatecli/images .
